@@ -22,6 +22,7 @@
             <th>JENIS KELAMIN</th>
             <th>ALAMAT</th>
             <th>NO HP</th>
+            <th>FOTO</th>
             <th>AKSI</th>
         </tr>
         <?php
@@ -45,6 +46,18 @@
             <td><?= $data['jk'] == 'l' ? 'Laki-Laki' : 'Perempuan' ?></td>
             <td><?= $data['alamat']; ?></td>
             <td><?= $data['nohp']; ?></td>
+            <td>
+                <?php
+                if(file_exists('Foto/'.$data['Foto'])){
+                    ?>
+                    <img src="<?= 'Foto/'.$data['Foto'] ?>" alt="" style="width: 50px; height:50px;">
+                    <?php
+                }else{
+                    echo "tidak ada foto";
+                }
+                ?>
+            </td>
+
             <td>
                 <a href="delete-siswa.php?nisn=<?= $data['nisn']; ?>">
                     <button>Hapus</button>
