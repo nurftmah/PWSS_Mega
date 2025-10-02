@@ -61,9 +61,6 @@
             $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
             $new_file_name = uniqid()."_".time().".".$file_extension;
             if(move_uploaded_file($foto['tmp_name'], 'Foto/'.$new_file_name)){
-                if(file_exists('Foto/'.$old_foto_name)){
-                unlink('Foto/'.$old_foto_name);
-                }
                 $sql = "INSERT INTO siswa VALUES ('$nisn','$nama','$jk','$alamat','$nohp','$new_file_name')";
             }else{
                 $sql = "INSERT INTO siswa VALUES ('$nisn','$nama','$jk','$alamat','$nohp','-')";
